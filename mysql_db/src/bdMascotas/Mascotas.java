@@ -8,14 +8,14 @@ public class Mascotas {
 	int codHistorial;
 	HistoriaClinica hc;
 	
-	public Mascotas(int id,String nombre, String raza, String anio, int codHistorial, HistoriaClinica hc) {
+	public Mascotas(int id,String nombre, String raza, String anio, int codHistorial/*, HistoriaClinica hc*/) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.raza = raza;
 		this.anio = anio;
 		this.codHistorial = codHistorial;
-		this.hc = hc;
+		//this.hc = hc;
 	}
 	
 	public int getId() {

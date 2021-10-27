@@ -1,19 +1,27 @@
 package com.campusfp.server;
 
 public class Persona {
+	private int id;
 	private String nombre;
 	private String apellido;
 	private String dni;
-	private String telefono;
-	private String email;
+	private String tlf;
 	
-	public Persona(String nombre, String apellido, String dni, String telefono, String email) {
+	public Persona(int id, String nombre, String apellido, String dni, String tlf) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
-		this.telefono = telefono;
-		this.email = email;
+		this.tlf = tlf;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -40,28 +48,19 @@ public class Persona {
 		this.dni = dni;
 	}
 
-	public String getTelefono() {
-		return telefono;
+	public String getTlf() {
+		return tlf;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setTlf(String tlf) {
+		this.tlf = tlf;
 	}
 
 	@Override
 	public String toString() {
-		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", telefono=" + telefono
-				+ ", email=" + email + "]";
+		return "Persona [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", tlf=" + tlf
+				+ "]";
 	}
-	
-	
+
 	
 }
