@@ -1,85 +1,49 @@
 <!DOCTYPE html>
-
-
-<html>
-
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
 
 <body>
+    <div class="container">
+        <header class="mt-2 text-center mx-4">
+            <h1 style="font-weight: bold;">FORMULARIO DE REGISTRO</h1>
+        </header>
+        <hr>
+    </div>
 
+    <div class="row">
 
-<form action="registro" method="post">
+        <div class="col-4 m-4"></div>
 
+        <div class="border rounded text-center m-4 col-4" style="width:25%; background-color:#F1EBFF">
+            <h4>REGISTRO</h4>Introduzca sus datos:
+            <hr>
+            <form action="RegistroServlet" method="post" class="center">
+                <span style="font-weight: bold;">Nombre</span>
+                <input type="text" class="form-control" name="name" required>
 
-<table>
+                <span style="font-weight: bold;">Apellido</span>
+                <input type="text" class="form-control" name="surname" required>
 
+				<span style="font-weight: bold;">DNI</span>
+                <input type="text" class="form-control" name="dni" required>
+                
+                <span style="font-weight: bold;">TelÃ©fono</span>
+                <input type="text" class="form-control" name="tlf" required>
 
-<tr>
+                <button type="submit" class="btn btn-primary m-4">REGISTRAR</button>
+            </form>
+        </div>
 
-
-<td>Nombre</td>
-
-
-<td><input name="name" /></td>
-
-
-</tr>
-
-
-<tr>
-
-
-<td>Apellido</td>
-
-
-<td><input name="surname" /></td>
-
-
-</tr>
-
-<tr>
-
-
-<td>DNI</td>
-
-
-<td><input name="dni" /></td>
-
-
-</tr>
-
-<tr>
-
-
-<td>Teléfono</td>
-
-
-<td><input name="tlf" /></td>
-
-
-</tr>
-
-<tr>
-
-
-<td>Email</td>
-
-
-<td><input name="email" /></td>
-
-
-</tr>
-
-
-</table>
-
-
-<input type="submit" />
-
-
-</form>
-
+        <div class="col-4 m-3"></div>
+    </div>
 
 </body>
-
 
 </html>

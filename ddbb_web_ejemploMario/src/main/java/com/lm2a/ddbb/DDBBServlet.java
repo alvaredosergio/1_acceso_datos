@@ -1,10 +1,11 @@
-package com.campusfp.server;
+package com.lm2a.ddbb;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,16 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class RegistroServlet
+ * Servlet implementation class DDBBServlet
  */
-@WebServlet("/RegistroServlet")
-public class RegistroServlet extends HttpServlet {
+@WebServlet("/DDBBServlet")
+public class DDBBServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistroServlet() {
+    public DDBBServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,30 +39,30 @@ public class RegistroServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			String nombre = request.getParameter("name");	
-			String apellido = request.getParameter("surname");	
-			String dni = request.getParameter("dni");	
-			String tlf = request.getParameter("tlf");
+			String fUname = request.getParameter("uname");	
+			String fPass = request.getParameter("pass");	
+			String fNombreCompleto = request.getParameter("nombreCompleto");	
+			String fEmilio = request.getParameter("emilio");
 			
 			String resultado = null;
 			PrintWriter out = response.getWriter();
 			
-			resultado = insertar(nombre, apellido, dni, tlf);
+			resultado = insertar(fUname, fPass, fNombreCompleto, fEmilio);
 			out.println(resultado);
 			
 	
 	}
 
-	private String insertar(String nombre, String apellido, String dni, String tlf) {
+	private String insertar(String fUname, String fPass, String fNombreCompleto, String fEmilio) {
 		String sql = null, msg = null;
 		try {
 			Connection con = DatabaseConnection.initializeDatabase();
-			sql = "INSERT INTO usuario(nombre, apellido, dni, tlf) VALUES (?, ?, ?, ?) ";
+			sql = "INSERT INTO Users(uname, pass, nombre_completo, emilio) VALUES (?, ?, ?, ?) ";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, nombre);
-			ps.setString(2, apellido);
-			ps.setString(3, dni);
-			ps.setString(4, tlf);
+			ps.setString(1, fUname);
+			ps.setString(2, fPass);
+			ps.setString(3, fNombreCompleto);
+			ps.setString(4, fEmilio);
 			int rows = ps.executeUpdate();
 			if(rows > 0) {
 				msg = "<html><body><b style=\"color:#00ff00\";>Insercion exitosa!"+"</b></body></html>";
