@@ -30,10 +30,12 @@ public class Main {
         System.out.println("-----------------------------------");
         filtroAudi(vehiculos);*/
 
-        compararKilometros(vehiculos);
+        /*compararKilometros(vehiculos);
         listarMarcas(vehiculos);
         listarMarcas3resuls(vehiculos);
-        listarMarcas3resulsSaltar2(vehiculos);
+        listarMarcas3resulsSaltar2(vehiculos);*/
+
+        listarMarcas3resuls(vehiculos);
         
     }
 
@@ -50,10 +52,9 @@ public class Main {
     }
 
     public static List<Vehiculo> filtroAudi(List<Vehiculo> vehiculos){
-        vehiculos.stream()
-        .filter(v->v.getModelo() == Modelo.AUDI)
+        return vehiculos.stream()
+        .filter(v->v.getModelo().equals(Modelo.AUDI))
         .collect(Collectors.toList());
-        return vehiculos;
     }
 
     public void imprimir(List <Vehiculo> vehiculos){
@@ -61,9 +62,10 @@ public class Main {
         .forEach(v->System.out.println(v));
     }
 
-    public static List <Vehiculo> compararKilometros(List <Vehiculo> vehiculos){
-        vehiculos.stream().sorted(Comparator.comparing(Vehiculo::getKilometros));
-        return vehiculos;
+    public static List <Vehiculo> ordenarKm(List <Vehiculo> vehiculos){
+        return vehiculos.stream()
+        .sorted(Comparator.comparing(Vehiculo::getKilometros))
+        .collect(Collectors.toList());
     }
 
     public static void listarMarcas(List <Vehiculo> vehiculos){
@@ -75,8 +77,7 @@ public class Main {
     public static void listarMarcas3resuls(List <Vehiculo> vehiculos){
         vehiculos.stream()
         .distinct()
-        .limit(3)
-        .forEach(v->System.out.println(v));
+        .forEach(v->System.out.println(v.getModelo()));
     }
 
     public static void listarMarcas3resulsSaltar2(List <Vehiculo> vehiculos){
