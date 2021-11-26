@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="caballero" class="com.lm2a.caballero.ValienteCaballero">
+		<constructor-arg ref="aventura" />
+	</bean>
+	<bean id="aventura"
+		class="com.lm2a.caballero.AventuraRescateDamisela">
+		<constructor-arg value="#{T(System).out}" />
+	</bean>
+
+	<bean id="juglar" class="com.lm2a.caballero.Juglar">
+		<constructor-arg value="#{T(System).out}" />
+	</bean>
+		<aop:config>
+		<aop:aspect ref="juglar">
+			<aop:pointcut id="embarcar"
+				expression="execution(* *.embarcarseEnAventura(..))" />
+			<aop:before pointcut-ref="embarcar" method="cantarAntesAventuras" />
+			<aop:after pointcut-ref="embarcar" method="cantarDespuesAventuras" />
+		</aop:aspect>
+	</aop:config>
+</beans>
